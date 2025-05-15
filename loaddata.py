@@ -5,15 +5,6 @@ import time
 import os
 
 def load_parquet_to_postgres(parquet_file, db_params, table_name):
-    """
-    Loads Parquet data into a PostgreSQL table, creating the table if it doesn't exist.
-
-    Args:
-        parquet_file (str): Path to the Parquet file.
-        db_params (dict): Dictionary containing PostgreSQL connection parameters
-                         (dbname, user, password, host, port).
-        table_name (str): Name of the table to load data into.
-    """
     start_time = time.time()
 
     # 1. Check if the Parquet file exists
