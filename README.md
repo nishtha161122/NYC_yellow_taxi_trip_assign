@@ -11,7 +11,7 @@ The data is sourced from a PostgreSQL database (nyc_taxi_db), specifically the `
 
 1.  **Data Loading:**
     * The `loaddata.py` script handles loading the data from the PostgreSQL database.
-    * It checks if the `yellow_taxi_trips` table exists. If not, it creates the table and loads the data.
+    * It checks if the `yellow_taxi_trips` table exists. If not, it creates the table and loads the data in the sql.
 
 2.  **Data Cleaning and Feature Engineering:**
     * The `filtering.py` script performs data cleaning and feature engineering.
