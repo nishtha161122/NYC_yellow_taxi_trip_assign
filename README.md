@@ -52,16 +52,3 @@ The data is sourced from a PostgreSQL database (nyc_taxi_db), specifically the `
 * `visualizing.py`: Script for visualizing the daily total revenue.
 * `README.md`: This file, providing an overview of the project.
 
-## Setup
-
-1.  Ensure you have a PostgreSQL database set up and running.
-2.  Create a database named `nyc_taxi_db`.
-3.  Install the required Python libraries: `pip install pandas sqlalchemy matplotlib seaborn psycopg2` (psycopg2 is the PostgreSQL adapter).
-4.  Set the `POSTGRES_PASSWORD` environment variable with your PostgreSQL password.
-5.  Modify the database connection parameters in the scripts (if needed) to match your database connection settings.
-
-## Usage
-
-1.  Run the `loaddata.py` script to load the data into the database.
-2.  Run the `filtering.py` script to clean the data and create new features in the database.
-3.  Run the `visualizing.py` script to generate the revenue visualization.
