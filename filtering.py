@@ -5,20 +5,7 @@ import time
 import os
 
 def clean_taxi_data(db_params, chunksize=100000, save_to_db=False, new_table_name="cleaned_taxi_trips", save_to_csv=False, csv_filename="cleaned_taxi_data.csv"):
-    """
-    Loads, cleans, and processes taxi data from a PostgreSQL database in chunks.  Calculates new features.
-
-    Args:
-        db_params (dict): Database connection parameters.
-        chunksize (int): Number of rows to process per chunk.
-        save_to_db (bool): Whether to save the cleaned data to a new database table.
-        new_table_name (str): Name of the new database table.
-        save_to_csv (bool): Whether to save the cleaned data to a CSV file.
-        csv_filename (str): Name of the CSV file.
-
-    Returns:
-        pd.DataFrame: The cleaned and processed taxi data, or an empty DataFrame on error.
-    """
+ 
     start_time = time.time()
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -89,7 +76,7 @@ def clean_taxi_data(db_params, chunksize=100000, save_to_db=False, new_table_nam
             logging.info(f"Cleaned data saved to '{csv_filename}'")
         elif save_to_db:
             try:
-                #  IMPORTANT:  Add the columns if they don't exist.
+                #  Adding the colunms if they don't exist
                 with engine.connect() as conn:
                     conn.execute(text("""  -- Wrap the SQL string with 'text()'
                         ALTER TABLE yellow_taxi_trips
@@ -102,7 +89,7 @@ def clean_taxi_data(db_params, chunksize=100000, save_to_db=False, new_table_nam
                 logging.info(f"Cleaned data saved to table '{new_table_name}' in database.")
             except Exception as db_error:
                 logging.error(f"Error saving to database: {db_error}")
-                raise  # Re-raise the exception
+                raise  
 
         return df
 
@@ -120,7 +107,7 @@ if __name__ == "__main__":
     db_params = {
         'dbname': 'nyc_taxi_db',
         'user': 'postgres',
-        'password': os.environ.get('POSTGRES_PASSWORD', '15231915'),
+        'password': os.environ.get('POSTGRES_PASSWORD', 'your_password'), #put your "chosen pass" at "your_pass"
         'host': 'localhost',
         'port': 5432
     }
