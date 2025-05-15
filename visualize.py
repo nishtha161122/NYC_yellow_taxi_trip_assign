@@ -34,12 +34,12 @@ def visualize_taxi_revenue(db_params, table_name="yellow_taxi_trips"):
         for index, row in peaks.iterrows():
             plt.annotate(f'Peak: ${row["total_amount"]:.2f}',
                          xy=(row['pickup_date'], row['total_amount']),
-                         xytext=(row['pickup_date'] + pd.Timedelta(days=5), row['total_amount'] + 100),  # Adjust offset as needed
+                         xytext=(row['pickup_date'] + pd.Timedelta(days=7), row['total_amount'] + 100),  
                          arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=0.2'))
         for index, row in troughs.iterrows():
             plt.annotate(f'Trough: ${row["total_amount"]:.2f}',
                          xy=(row['pickup_date'], row['total_amount']),
-                         xytext=(row['pickup_date'] + pd.Timedelta(days=5), row['total_amount'] - 100),  # Adjust offset as needed
+                         xytext=(row['pickup_date'] + pd.Timedelta(days=7), row['total_amount'] - 100),  
                          arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=-0.2'))
 
         # labels/titles
