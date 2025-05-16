@@ -1,8 +1,8 @@
-import pandas as pd
-from sqlalchemy import create_engine, text  # Import the 'text' function
-import logging
-import time
-import os
+import pandas as pd #dataframes
+from sqlalchemy import create_engine, text  # Import the 'text' function from sqlalchemy 
+import logging #to log info,warnings 
+import time #to calculate execution time
+import os #to interact with the OS
 
 def clean_taxi_data(db_params, chunksize=100000, save_to_db=False, new_table_name="cleaned_taxi_trips", save_to_csv=False, csv_filename="cleaned_taxi_data.csv"):
  
@@ -23,8 +23,8 @@ def clean_taxi_data(db_params, chunksize=100000, save_to_db=False, new_table_nam
             FROM yellow_taxi_trips
             """
 
-        logging.info(f"Loading and cleaning data from PostgreSQL in chunks of {chunksize}...")
-        all_chunks = []
+        logging.info(f"Loading and cleaning data from PostgreSQL in chunks of {chunksize}...")#load data from database
+        all_chunks = []# to store processed chunks
 
         for chunk in pd.read_sql(sql, engine, chunksize=chunksize):
             logging.info(f"Processing chunk of shape: {chunk.shape}")
