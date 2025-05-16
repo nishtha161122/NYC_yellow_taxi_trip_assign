@@ -115,11 +115,11 @@ if __name__ == "__main__":
     # File path
     parquet_file = r"C:\Users\Nishtha\Desktop\Assignment_1\yellow_tripdata_2023-01.parquet"
 
-    # Database connection parameters (IMPORTANT:  Move password out of script for security)
+    # Database connection parameter # make this separate class (environemental variable)
     db_params = {
         'dbname': 'nyc_taxi_db',
         'user': 'postgres',
-        'password': '15231915',  # Replace with your actual password
+        'password': '',  # Replace with your actual password
         'host': 'localhost',
         'port': 5432
     }
